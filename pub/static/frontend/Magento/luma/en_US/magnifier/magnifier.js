@@ -1,1 +1,0 @@
-/app/lib/web/magnifier/magnifier.js
