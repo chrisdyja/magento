@@ -37,7 +37,7 @@ class Test
             $logger->info(__METHOD__);
 
         } catch (\Exception $e) {
-            $logger->info("Cron Job " . __METHOD__ . " failed. " . $e->getMessage());
+            $logger->info("Cro0n Job " . __METHOD__ . " failed. " . $e->getMessage());
         }
         return $this;
     }
