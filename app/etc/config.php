@@ -263,6 +263,7 @@ return [
         'MSP_TwoFactorAuth' => 1,
         'Temando_ShippingRemover' => 1,
         'TestModulePackage_TestModule' => 1,
+        'TrelloCLI_Orders' => 1,
         'Tutorial_Example' => 1,
         'Vertex_Tax' => 1,
         'Vertex_AddressValidation' => 1,

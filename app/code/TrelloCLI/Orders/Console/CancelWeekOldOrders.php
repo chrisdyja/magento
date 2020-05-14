@@ -33,7 +33,7 @@ class CancelWeekOldOrders extends Command
 
     protected function configure()
     {
-        $this->setName('custom:getOrdersOlderThanWeek');
+        $this->setName('custom:cancelWeekOldOrders');
         $this->setDescription('Demo command line');
 
         parent::configure();
@@ -41,9 +41,7 @@ class CancelWeekOldOrders extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $startDate = date("Y-m-d h:i:s",strtotime('-10 days')); // start date
-        $endDate = date("Y-m-d h:i:s"); // end date
-        $this->cancelOrder->setOrderStatusToCanceled($this->order->getOrderCollectionByDateRange($startDate, $endDate));
+        $this->cancelOrder->setOrderStatusToCanceled($this->order->getNewPendingWeekOldOrders());
         $output->writeln("Hello World");
     }
 }

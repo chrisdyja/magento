@@ -1,0 +1,1 @@
+/app/vendor/msp/recaptcha/view/frontend/web/js/reCaptcha.js

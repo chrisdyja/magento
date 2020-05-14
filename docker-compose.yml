@@ -1,0 +1,43 @@
+    version: '3'
+    services:
+        web:
+            image: webdevops/php-apache-dev:ubuntu-18.04
+            container_name: web
+            restart: always
+            user: application
+            environment:
+              - WEB_ALIAS_DOMAIN=localhost.com
+              - WEB_DOCUMENT_ROOT=/app/pub
+              - PHP_DATE_TIMEZONE=EST
+              - PHP_DISPLAY_ERRORS=1
+              - PHP_MEMORY_LIMIT=2048M
+              - PHP_MAX_EXECUTION_TIME=300
+              - PHP_POST_MAX_SIZE=500M
+              - PHP_UPLOAD_MAX_FILESIZE=1024M
+              - PHP_MAX_INPUT_VARS=200000
+              - PHP_MAX_INPUT_TIME=3600
+              - PHP_EXTENSION_XDEBUG=1
+              - PHP_INI_XDEBUG__REMOTE_PORT=9001
+              - XDEBUG_CONFIG=remote_port=9001 remote_autostart=0
+            volumes:
+              - "./:/app:cached"
+            ports:
+              - "80:80"
+              - "443:443"
+              - "32823:22"
+            links:
+              - mysql
+        mysql:
+            image: mariadb:10
+            container_name: mysql
+            restart: always
+            ports:
+              - "3306:3306"
+            environment:
+              - MYSQL_ROOT_PASSWORD=admin
+              - MYSQL_DATABASE=magento2
+            volumes:
+              - db-data:/var/lib/mysql
+    volumes:
+        db-data:
+            external: false

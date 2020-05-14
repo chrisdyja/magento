@@ -1,1 +1,25 @@
-<h2>Welcome to Mageplaza.com</h2>
+<h2>Zamow Order</h2>
+<?php
+$orderCollection = $block->getOrderCollection();
+if ($orderCollection && count($orderCollection) > 0) {
+    foreach ($orderCollection AS $order) {
+        echo $order->getId() . " -> ";
+        echo $order->getState() . " -> ";
+        echo $order->getCreatedAt() . " -> ";
+        echo $order->getStatus() . "<br/>";
+    }
+}
+
+echo "<br/><br/>________________<br/><br/>";
+
+$orders = $block->getOrderCollectionByDateRange();
+if($orders->getTotalCount() > 0) {
+    foreach($orders as $order) {
+        echo $order->getId() . " -> ";
+        echo $order->getState() . " -> ";
+        echo $order->getCreatedAt() . " -> ";
+        echo $order->getStatus() . "<br/>";
+    }
+}
+
+

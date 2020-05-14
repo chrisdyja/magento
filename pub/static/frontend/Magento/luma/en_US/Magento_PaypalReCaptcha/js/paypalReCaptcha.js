@@ -1,0 +1,1 @@
+/app/vendor/magento/module-paypal-recaptcha/view/frontend/web/js/paypalReCaptcha.js
